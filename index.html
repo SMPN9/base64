@@ -1,0 +1,45 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title>ToBase64</title>
+ 
+</style>
+ 
+ </head>
+<body> 
+
+ 
+			<button id="pilih" style="color:white;font-size:14px;padding:10px 70px;background:orange;border-radius:10px;">Cari File<br><img id="gambar" onload="this.style.display='block'" style="padding-top:7px;display:none;width:3cm;height:auto;border:0px solid white"> 	
+			</button>  
+			
+			
+			<input type="file" name="files" id="file" style="display: none;" ></p><p>
+	<textarea id='qq' style='width:100%;height:100%'></textarea>
+	<script>		
+			 
+	 var tm_pilih = document.getElementById('pilih');
+        var file = document.getElementById('file');
+        tm_pilih.addEventListener('click', function () {
+            file.click();
+        })
+        file.addEventListener('change', function () {
+            gambar(this);
+        })
+		
+        function gambar(a) {
+            if (a.files && a.files[0]) {     
+                 var reader = new FileReader();    
+                 reader.onload = function (e) {
+				     document.getElementById("qq").value=e.target.result
+					 return 
+                     document.getElementById('gambar').src=e.target.result;
+					 document.getElementById('gambar2').src=e.target.result;
+                 }    
+                 reader.readAsDataURL(a.files[0]);
+            }
+
+        }
+ 
+    </script>
+	
+	
+</body></html>
